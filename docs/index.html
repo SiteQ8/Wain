@@ -127,7 +127,7 @@ html{font-size:16px}body{font-family:'Tajawal',sans-serif;background:var(--bg);c
 <script>
 
 // ═══ STATE ═══
-var S={loggedIn:false,lang:'ar',tab:'home',page:'home',detail:null,favs:{},phone:'',otp:'',otpSent:false,showBooking:false,selectedPkg:0,bookingConfirmed:false,coupon:'',couponOk:false,payMethod:'knet',selectedKid:0};
+var S={loggedIn:false,lang:'ar',tab:'home',page:'home',detail:null,favs:{},phone:'',otp:'',otpSent:false,showBooking:false,selectedPkg:0,bookingConfirmed:false,coupon:'',couponOk:false,payMethod:'knet',selectedKid:0,subPage:null,newKidName:'',newKidAge:''};
 var T={ar:{app:'وين',tag:'وين تبي تروح؟',home:'الرئيسية',search:'البحث',favs:'المفضلة',bookings:'حجوزاتي',profile:'حسابي',nursery:'حضانات',summerClub:'نوادي صيفية',activity:'أنشطة',babysitter:'مربيات',featured:'عروض مميزة',recommended:'نرشح لك',viewAll:'عرض الكل',bookNow:'احجز الآن',call:'اتصل',from:'من',kd:'د.ك',reviews:'تقييم',age:'الأعمار',years:'سنة',facilities:'المرافق',packages:'الباقات',schedule:'المواعيد',area:'المنطقة',back:'رجوع',kids:'أطفالي',settings:'الإعدادات',lang:'English',logout:'خروج',help:'المساعدة',myBookings:'حجوزاتي',noBookings:'لا توجد حجوزات بعد',offers:'العروض',swimming:'مسبح',playground:'ملعب',ac:'مكيّف',meals:'وجبات',bus:'مواصلات',parking:'مواقف',cctv:'كاميرات',medical:'إسعافات',wifi:'واي فاي',outdoor:'خارجي',indoor:'داخلي',monthPlan:'شهري',weekPlan:'أسبوعي',dailyPlan:'يومي',description:'الوصف',sunToThu:'الأحد - الخميس',searchPlaceholder:'ابحث عن حضانة، نادي صيفي...',filter:'تصنيف',allAreas:'جميع المناطق',farwaniya:'الفروانية',hawalli:'حولي',salmiya:'السالمية',sabahSalem:'صباح السالم',jahra:'الجهراء',capital:'العاصمة',all:'الكل',selectPackage:'اختر الباقة',selectKid:'اختر الطفل',startDate:'تاريخ البدء',paymentMethod:'طريقة الدفع',knet:'كي نت',creditCard:'بطاقة ائتمان',applePay:'Apple Pay',cash:'دفع عند الوصول',couponCode:'كود خصم',apply:'تطبيق',confirmBooking:'تأكيد الحجز',bookingDone:'تم الحجز بنجاح!',bookingTrack:'سيتم التواصل معك خلال ساعة لتأكيد الحجز',total:'المجموع',discount:'خصم',addKid:'إضافة طفل',kidName:'اسم الطفل',kidAge:'العمر',goToBookings:'عرض حجوزاتي',earnedPts:'نقاط مكتسبة',paySecure:'ادفع بأمان'},
 en:{app:'Wain',tag:'Where do you wanna go?',home:'Home',search:'Search',favs:'Favorites',bookings:'Bookings',profile:'Profile',nursery:'Nurseries',summerClub:'Summer Clubs',activity:'Activities',babysitter:'Babysitters',featured:'Featured',recommended:'Recommended',viewAll:'View All',bookNow:'Book Now',call:'Call',from:'From',kd:'KD',reviews:'reviews',age:'Ages',years:'yrs',facilities:'Facilities',packages:'Packages',schedule:'Schedule',area:'Area',back:'Back',kids:'My Kids',settings:'Settings',lang:'العربية',logout:'Log Out',help:'Help',myBookings:'My Bookings',noBookings:'No bookings yet',offers:'Offers',swimming:'Swimming',playground:'Playground',ac:'A/C',meals:'Meals',bus:'Transport',parking:'Parking',cctv:'CCTV',medical:'Medical',wifi:'WiFi',outdoor:'Outdoor',indoor:'Indoor',monthPlan:'Monthly',weekPlan:'Weekly',dailyPlan:'Daily',description:'Description',sunToThu:'Sun - Thu',searchPlaceholder:'Search nurseries, summer clubs...',filter:'Filter',allAreas:'All Areas',farwaniya:'Farwaniya',hawalli:'Hawalli',salmiya:'Salmiya',sabahSalem:'Sabah Al Salem',jahra:'Jahra',capital:'Capital',all:'All',selectPackage:'Select Package',selectKid:'Select Child',startDate:'Start Date',paymentMethod:'Payment Method',knet:'KNET',creditCard:'Credit Card',applePay:'Apple Pay',cash:'Cash on Arrival',couponCode:'Promo Code',apply:'Apply',confirmBooking:'Confirm Booking',bookingDone:'Booking Confirmed!',bookingTrack:'We\'ll contact you within 1 hour to confirm',total:'Total',discount:'Discount',addKid:'Add Child',kidName:'Child Name',kidAge:'Age',goToBookings:'View My Bookings',earnedPts:'Points Earned',paySecure:'Pay Securely'}};
 
@@ -205,6 +205,11 @@ card.appendChild(n('div',{style:{display:'flex',alignItems:'center',gap:'10px',m
 card.appendChild(n('button',{style:{width:'100%',padding:'12px',borderRadius:'12px',border:'1px solid rgba(255,255,255,.15)',background:'rgba(255,255,255,.05)',color:'#fff',fontSize:'.85rem',cursor:'pointer',fontFamily:'inherit',fontWeight:'600'},onclick:function(){S.loggedIn=true;render()}},isRtl()?'🚀 دخول تجريبي سريع':'🚀 Quick Demo Login'));
 lg.appendChild(card);
 lg.appendChild(n('div',{style:{marginTop:'16px',textAlign:'center',width:'100%'}},n('div',{style:{background:'rgba(255,255,255,.06)',borderRadius:'12px',padding:'10px',border:'1px dashed rgba(255,255,255,.12)',fontSize:'.7rem',color:'rgba(255,255,255,.45)'}},isRtl()?'📱 أدخل أي رقم ← إرسال ← أي ٤ أرقام':'📱 Enter any phone → Send OTP → Any 4 digits')));
+
+// Admin Portal link on login
+lg.appendChild(n('div',{style:{marginTop:'12px',textAlign:'center'}}));
+lg.appendChild(n('button',{style:{padding:'8px 20px',borderRadius:'10px',background:'rgba(255,255,255,.08)',border:'1px solid rgba(255,255,255,.1)',color:'rgba(255,255,255,.5)',fontSize:'.7rem',cursor:'pointer',fontFamily:'inherit',fontWeight:'600'},onclick:function(){window.open('admin.html','_blank')}},isRtl()?'🖥️ دخول لوحة الإدارة':'🖥️ Admin Portal'));
+
 lg.appendChild(n('div',{style:{marginTop:'14px',fontSize:'.55rem',color:'rgba(255,255,255,.2)',textAlign:'center'}},'Wain v1.0 — @SiteQ8 · Ali AlEnezi'));
 root.appendChild(lg);return}
 
@@ -544,15 +549,15 @@ USER.kids.forEach(function(k){kids.appendChild(n('div',{className:'prof-kid'},(k
 header.appendChild(kids);pg.appendChild(header);
 
 var menu=[
-['👶',t('kids'),'#e8f5e9'],
-['📋',t('myBookings'),'#e3f2fd'],
-['❤️',t('favs'),'#fce4ec'],
-['🏷️',t('offers'),'#fff8e1'],
+['👶',t('kids'),'#e8f5e9',function(){S.subPage='kids';render()}],
+['📋',t('myBookings'),'#e3f2fd',function(){S.tab='bookings';render()}],
+['❤️',t('favs'),'#fce4ec',function(){S.tab='favs';render()}],
+['🏷️',t('offers'),'#fff8e1',function(){S.subPage='offers';render()}],
 ['🌐',t('lang'),'#f3e5f5',function(){S.lang=S.lang==='ar'?'en':'ar';render()}],
-['🖥️',isRtl()?'لوحة الإدارة':'Admin Dashboard','#ede9fe',function(){window.open('admin.html','_blank')}],
-['⚙️',t('settings'),'#f5f5f5'],
-['❓',t('help'),'#e0f7fa'],
-['🚪',t('logout'),'#ffebee']
+['🔔',isRtl()?'الإشعارات':'Notifications','#e0f7fa',function(){S.subPage='notifs';render()}],
+['⚙️',t('settings'),'#f5f5f5',function(){S.subPage='settings';render()}],
+['❓',t('help'),'#e0f7fa',function(){S.subPage='help';render()}],
+['🚪',t('logout'),'#ffebee',function(){S.loggedIn=false;S.otpSent=false;S.otp='';S.phone='';S.subPage=null;render()}]
 ];
 var menuWrap=n('div',{style:{marginTop:'12px',background:'var(--card)',borderRadius:'16px',overflow:'hidden',margin:'12px 16px'}});
 menu.forEach(function(m){
@@ -562,6 +567,126 @@ mi.appendChild(n('span',{className:'menu-lbl'},m[1]));
 mi.appendChild(n('span',{className:'menu-arr'},'←'));
 menuWrap.appendChild(mi)});
 pg.appendChild(menuWrap);
+
+
+// ═══ SUB-PAGES ═══
+if(S.subPage){
+var sp=n('div',{style:{position:'fixed',inset:'0',background:'var(--bg)',zIndex:'200',maxWidth:'var(--max)',margin:'0 auto',overflowY:'auto'}});
+var spHdr=n('div',{style:{display:'flex',alignItems:'center',gap:'10px',padding:'16px',position:'sticky',top:'0',background:'var(--bg)',zIndex:'5',borderBottom:'1px solid var(--border)'}});
+spHdr.appendChild(n('button',{style:{background:'none',border:'none',fontSize:'1.2rem',cursor:'pointer'},onclick:function(){S.subPage=null;render()}},'←'));
+
+if(S.subPage==='kids'){
+spHdr.appendChild(n('div',{style:{fontSize:'1.1rem',fontWeight:'800'}},t('kids')));sp.appendChild(spHdr);
+var kBody=n('div',{style:{padding:'16px'}});
+USER.kids.forEach(function(k,i){
+var kc=n('div',{style:{background:'#fff',borderRadius:'16px',padding:'16px',marginBottom:'10px',boxShadow:'0 2px 8px rgba(0,0,0,.04)',display:'flex',alignItems:'center',gap:'12px',border:'1px solid var(--border)'}});
+kc.appendChild(n('div',{style:{width:'48px',height:'48px',borderRadius:'50%',background:k.gender==='girl'?'#fce4ec':'#e3f2fd',display:'flex',alignItems:'center',justifyContent:'center',fontSize:'1.5rem'}},k.gender==='girl'?'👧':'👦'));
+var ki=n('div',{style:{flex:'1'}});
+ki.appendChild(n('div',{style:{fontSize:'.95rem',fontWeight:'700'}},k.name));
+ki.appendChild(n('div',{style:{fontSize:'.72rem',color:'var(--t2)',marginTop:'2px'}},(isRtl()?'العمر: ':'Age: ')+k.age+(isRtl()?' سنة':' years')));
+if(k.notes)ki.appendChild(n('div',{style:{fontSize:'.65rem',color:'var(--t3)',marginTop:'2px'}},'📝 '+k.notes));
+kc.appendChild(ki);
+kBody.appendChild(kc)});
+
+// Add kid form
+var addCard=n('div',{style:{background:'#fff',borderRadius:'16px',padding:'16px',marginTop:'16px',boxShadow:'0 2px 8px rgba(0,0,0,.04)',border:'2px dashed var(--border)'}});
+addCard.appendChild(n('div',{style:{fontSize:'.85rem',fontWeight:'700',marginBottom:'12px',color:'var(--primary)',textAlign:'center'}},'+ '+(isRtl()?'إضافة طفل جديد':'Add New Child')));
+var nameInp=n('input',{type:'text',placeholder:isRtl()?'اسم الطفل':'Child name',style:{width:'100%',padding:'11px 14px',borderRadius:'10px',border:'1.5px solid var(--border)',fontSize:'.85rem',fontFamily:'inherit',marginBottom:'8px'}});
+nameInp.value=S.newKidName;nameInp.oninput=function(){S.newKidName=this.value};
+addCard.appendChild(nameInp);
+var ageInp=n('input',{type:'number',placeholder:isRtl()?'العمر':'Age',min:'0',max:'18',style:{width:'100%',padding:'11px 14px',borderRadius:'10px',border:'1.5px solid var(--border)',fontSize:'.85rem',fontFamily:'inherit',marginBottom:'10px'}});
+ageInp.value=S.newKidAge;ageInp.oninput=function(){S.newKidAge=this.value};
+addCard.appendChild(ageInp);
+addCard.appendChild(n('button',{style:{width:'100%',padding:'12px',borderRadius:'12px',background:'var(--primary)',color:'#fff',border:'none',fontSize:'.88rem',fontWeight:'700',cursor:'pointer',fontFamily:'inherit'},onclick:function(){if(S.newKidName&&S.newKidAge){USER.kids.push({name:S.newKidName,age:parseInt(S.newKidAge),gender:'boy'});S.newKidName='';S.newKidAge='';render()}}},isRtl()?'إضافة':'Add'));
+kBody.appendChild(addCard);
+sp.appendChild(kBody);
+
+}else if(S.subPage==='offers'){
+spHdr.appendChild(n('div',{style:{fontSize:'1.1rem',fontWeight:'800'}},t('offers')));sp.appendChild(spHdr);
+var oBody=n('div',{style:{padding:'16px'}});
+var coupons=[{code:'SUMMER25',disc:'25%',desc_ar:'خصم على جميع النوادي الصيفية',desc_en:'Discount on all summer clubs',valid:'Aug 31, 2025',color:'#6366f1'},{code:'WAIN10',disc:'10%',desc_ar:'خصم ترحيبي لجميع المستخدمين',desc_en:'Welcome discount for all users',valid:'Dec 31, 2025',color:'#059669'},{code:'FIRST50',disc:'50%',desc_ar:'خصم على أول حجز فقط',desc_en:'First booking discount',valid:'Jun 30, 2025',color:'#ec4899'},{code:'NEWUSER',disc:'20%',desc_ar:'للمستخدمين الجدد',desc_en:'For new users only',valid:'Dec 31, 2025',color:'#f59e0b'}];
+coupons.forEach(function(c){
+var cc=n('div',{style:{background:'linear-gradient(135deg,'+c.color+','+c.color+'cc)',borderRadius:'16px',padding:'18px',marginBottom:'10px',color:'#fff',position:'relative',overflow:'hidden'}});
+cc.appendChild(n('div',{style:{position:'absolute',top:'-20px',right:'-20px',width:'80px',height:'80px',borderRadius:'50%',background:'rgba(255,255,255,.08)'}}));
+cc.appendChild(n('div',{style:{fontSize:'1.5rem',fontWeight:'900',fontFamily:'monospace',letterSpacing:'2px'}},c.code));
+cc.appendChild(n('div',{style:{fontSize:'2rem',fontWeight:'900',marginTop:'4px'}},c.disc+' '+(isRtl()?'خصم':'OFF')));
+cc.appendChild(n('div',{style:{fontSize:'.72rem',opacity:'.8',marginTop:'4px'}},c[isRtl()?'desc_ar':'desc_en']));
+cc.appendChild(n('div',{style:{fontSize:'.6rem',opacity:'.5',marginTop:'6px'}},(isRtl()?'صالح حتى: ':'Valid until: ')+c.valid));
+oBody.appendChild(cc)});
+sp.appendChild(oBody);
+
+}else if(S.subPage==='notifs'){
+spHdr.appendChild(n('div',{style:{fontSize:'1.1rem',fontWeight:'800'}},isRtl()?'الإشعارات':'Notifications'));sp.appendChild(spHdr);
+var nBody=n('div',{style:{padding:'16px'}});
+var notifs=[{icon:'📦',title_ar:'تم تأكيد حجزك في نادي الصيف المرح',title_en:'Your booking at Fun Summer Club is confirmed',time:'5m',read:false},{icon:'🏷️',title_ar:'عرض خاص — خصم ٢٥٪ على النوادي الصيفية',title_en:'Special offer — 25% off summer clubs',time:'1h',read:false},{icon:'⭐',title_ar:'قيّم تجربتك في أكاديمية السباحة',title_en:'Rate your experience at Swimming Academy',time:'2h',read:true},{icon:'🔔',title_ar:'تذكير: نادي كرة القدم يبدأ غداً',title_en:'Reminder: Football Academy starts tomorrow',time:'1d',read:true},{icon:'📍',title_ar:'حضانة جديدة بالقرب منك — حضانة الأميرات',title_en:'New nursery nearby — Princesses Nursery',time:'2d',read:true}];
+notifs.forEach(function(nt){
+var nc=n('div',{style:{background:nt.read?'#fff':'#f8f6ff',borderRadius:'14px',padding:'14px',marginBottom:'8px',boxShadow:'0 1px 4px rgba(0,0,0,.03)',display:'flex',gap:'10px',border:'1px solid '+(nt.read?'var(--border)':'#c7d2fe'),opacity:nt.read?'.7':'1'}});
+nc.appendChild(n('div',{style:{fontSize:'1.3rem',flexShrink:'0'}},nt.icon));
+var ni=n('div',{style:{flex:'1'}});
+ni.appendChild(n('div',{style:{fontSize:'.82rem',fontWeight:nt.read?'500':'700',lineHeight:'1.5'}},nt[isRtl()?'title_ar':'title_en']));
+ni.appendChild(n('div',{style:{fontSize:'.6rem',color:'var(--t3)',marginTop:'4px'}},nt.time));
+nc.appendChild(ni);
+if(!nt.read)nc.appendChild(n('div',{style:{width:'8px',height:'8px',borderRadius:'50%',background:'var(--primary)',flexShrink:'0',marginTop:'6px'}}));
+nBody.appendChild(nc)});
+sp.appendChild(nBody);
+
+}else if(S.subPage==='settings'){
+spHdr.appendChild(n('div',{style:{fontSize:'1.1rem',fontWeight:'800'}},t('settings')));sp.appendChild(spHdr);
+var sBody=n('div',{style:{padding:'16px'}});
+
+// Language
+var lCard=n('div',{style:{background:'#fff',borderRadius:'14px',padding:'16px',marginBottom:'10px',border:'1px solid var(--border)'}});
+lCard.appendChild(n('div',{style:{fontSize:'.82rem',fontWeight:'700',marginBottom:'10px'}},isRtl()?'اللغة':'Language'));
+['ar','en'].forEach(function(lng){
+var lo=n('div',{style:{display:'flex',alignItems:'center',justifyContent:'space-between',padding:'10px 0',borderBottom:'1px solid var(--border)',cursor:'pointer'},onclick:function(){S.lang=lng;render()}});
+lo.appendChild(n('span',{style:{fontSize:'.85rem'}},lng==='ar'?'🇰🇼 العربية':'🇬🇧 English'));
+if(S.lang===lng)lo.appendChild(n('span',{style:{color:'var(--primary)',fontWeight:'700'}},'✓'));
+lCard.appendChild(lo)});
+sBody.appendChild(lCard);
+
+// Notifications toggle
+var nCard=n('div',{style:{background:'#fff',borderRadius:'14px',padding:'16px',marginBottom:'10px',border:'1px solid var(--border)'}});
+nCard.appendChild(n('div',{style:{fontSize:'.82rem',fontWeight:'700',marginBottom:'10px'}},isRtl()?'الإشعارات':'Notifications'));
+[isRtl()?'إشعارات الحجوزات':'Booking notifications',isRtl()?'العروض والتخفيضات':'Offers & promotions',isRtl()?'تذكيرات المواعيد':'Schedule reminders'].forEach(function(label){
+var row=n('div',{style:{display:'flex',alignItems:'center',justifyContent:'space-between',padding:'10px 0',borderBottom:'1px solid #f8fafc'}});
+row.appendChild(n('span',{style:{fontSize:'.82rem'}},label));
+var tog=n('div',{style:{width:'40px',height:'22px',borderRadius:'11px',background:'var(--primary)',position:'relative',cursor:'pointer'}});
+tog.appendChild(n('div',{style:{width:'18px',height:'18px',borderRadius:'50%',background:'#fff',position:'absolute',top:'2px',right:'2px',boxShadow:'0 1px 3px rgba(0,0,0,.1)'}}));
+row.appendChild(tog);
+nCard.appendChild(row)});
+sBody.appendChild(nCard);
+
+// About
+var aCard=n('div',{style:{background:'#fff',borderRadius:'14px',padding:'16px',border:'1px solid var(--border)'}});
+aCard.appendChild(n('div',{style:{fontSize:'.82rem',fontWeight:'700',marginBottom:'10px'}},isRtl()?'عن التطبيق':'About'));
+aCard.appendChild(n('div',{style:{fontSize:'.78rem',color:'var(--t2)',lineHeight:'1.8'}},isRtl()?'وين — تطبيق يساعد الآباء والأمهات في الكويت على اكتشاف ومقارنة وحجز أفضل الأنشطة والحضانات والنوادي الصيفية ومربيات الأطفال.':'Wain helps parents in Kuwait discover, compare and book the best kids activities, nurseries, summer clubs and babysitters.'));
+aCard.appendChild(n('div',{style:{fontSize:'.65rem',color:'var(--t3)',marginTop:'10px'}},'Version 1.0 · Ali AlEnezi · @SiteQ8'));
+sBody.appendChild(aCard);
+sp.appendChild(sBody);
+
+}else if(S.subPage==='help'){
+spHdr.appendChild(n('div',{style:{fontSize:'1.1rem',fontWeight:'800'}},t('help')));sp.appendChild(spHdr);
+var hBody=n('div',{style:{padding:'16px'}});
+var faqs=[{q_ar:'كيف أحجز نشاط لطفلي؟',q_en:'How do I book an activity?',a_ar:'اختر النشاط ← اضغط احجز الآن ← اختر الباقة والطفل ← أكّد الحجز',a_en:'Choose activity → Book Now → Select package & child → Confirm'},{q_ar:'ما هي طرق الدفع المتاحة؟',q_en:'What payment methods are available?',a_ar:'كي نت، بطاقة ائتمان، Apple Pay، أو الدفع عند الوصول',a_en:'KNET, Credit Card, Apple Pay, or Cash on Arrival'},{q_ar:'كيف أستخدم كود الخصم؟',q_en:'How to use a promo code?',a_ar:'أدخل الكود في صفحة الحجز واضغط تطبيق. جرّب: SUMMER25',a_en:'Enter code in booking page and tap Apply. Try: SUMMER25'},{q_ar:'هل يمكنني إلغاء الحجز؟',q_en:'Can I cancel a booking?',a_ar:'نعم، تواصل معنا عبر واتساب لإلغاء الحجز واسترداد المبلغ',a_en:'Yes, contact us via WhatsApp to cancel and get a refund'},{q_ar:'كيف أتواصل مع الدعم؟',q_en:'How to contact support?',a_ar:'واتساب: 96599999999+ أو البريد: support@wain.app',a_en:'WhatsApp: +96599999999 or Email: support@wain.app'}];
+faqs.forEach(function(f){
+var fc=n('div',{style:{background:'#fff',borderRadius:'14px',padding:'16px',marginBottom:'8px',border:'1px solid var(--border)'}});
+fc.appendChild(n('div',{style:{fontSize:'.88rem',fontWeight:'700',color:'var(--primary)',marginBottom:'6px'}},f[isRtl()?'q_ar':'q_en']));
+fc.appendChild(n('div',{style:{fontSize:'.78rem',color:'var(--t2)',lineHeight:'1.7'}},f[isRtl()?'a_ar':'a_en']));
+hBody.appendChild(fc)});
+
+// Contact
+var contact=n('div',{style:{background:'linear-gradient(135deg,var(--primary),#818cf8)',borderRadius:'16px',padding:'20px',color:'#fff',marginTop:'12px',textAlign:'center'}});
+contact.appendChild(n('div',{style:{fontSize:'1.5rem',marginBottom:'6px'}},'💬'));
+contact.appendChild(n('div',{style:{fontSize:'.95rem',fontWeight:'800'}},isRtl()?'تحتاج مساعدة؟':'Need Help?'));
+contact.appendChild(n('div',{style:{fontSize:'.75rem',opacity:'.8',marginTop:'4px'}},isRtl()?'تواصل معنا عبر واتساب':'Contact us on WhatsApp'));
+contact.appendChild(n('button',{style:{marginTop:'10px',padding:'10px 24px',borderRadius:'12px',background:'#fff',color:'var(--primary)',border:'none',fontSize:'.85rem',fontWeight:'700',cursor:'pointer',fontFamily:'inherit'},onclick:function(){window.open('https://wa.me/96599999999','_blank')}},isRtl()?'واتساب':'WhatsApp'));
+hBody.appendChild(contact);
+sp.appendChild(hBody);
+}
+
+root.appendChild(sp);return;
+}
+
 
 pg.appendChild(n('div',{style:{textAlign:'center',padding:'16px',fontSize:'.6rem',color:'var(--t3)'}},'Wain v1.0 — Ali AlEnezi · @SiteQ8'));
 return pg}
