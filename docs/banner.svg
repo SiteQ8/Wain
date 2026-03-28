@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 250" width="800" height="250">
+<defs>
+  <linearGradient id="bbg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#4338ca"/>
+    <stop offset="40%" stop-color="#6366f1"/>
+    <stop offset="100%" stop-color="#a78bfa"/>
+  </linearGradient>
+</defs>
+<rect width="800" height="250" rx="24" fill="url(#bbg)"/>
+<circle cx="700" cy="20" r="180" fill="rgba(255,255,255,.03)"/>
+<circle cx="100" cy="260" r="150" fill="rgba(255,255,255,.02)"/>
+<!-- Logo -->
+<circle cx="120" cy="125" r="56" fill="rgba(255,255,255,.1)"/>
+<path d="M120 70 C104 70 92 82 92 98 C92 118 120 145 120 145 C120 145 148 118 148 98 C148 82 136 70 120 70Z" fill="rgba(255,255,255,.9)" opacity=".85"/>
+<text x="120" y="102" text-anchor="middle" font-size="18" font-weight="900" fill="#4338ca" font-family="Inter,sans-serif">WAIN</text>
+<text x="120" y="135" text-anchor="middle" font-size="20" font-weight="900" fill="#fff" font-family="sans-serif" opacity=".8">وين</text>
+<!-- Text -->
+<text x="210" y="95" font-family="Inter,sans-serif" font-size="52" font-weight="900" fill="#fff" letter-spacing="-2">Wain</text>
+<text x="340" y="95" font-family="Tajawal,sans-serif" font-size="36" font-weight="800" fill="rgba(255,255,255,.5)">وين</text>
+<text x="210" y="125" font-family="Inter,sans-serif" font-size="16" fill="rgba(255,255,255,.6)">Kuwait Kids Activities, Summer Clubs &amp; Nurseries</text>
+<text x="210" y="150" font-family="Tajawal,sans-serif" font-size="16" fill="rgba(255,255,255,.4)">اكتشف أفضل أنشطة الأطفال والحضانات في الكويت 🇰🇼</text>
+<!-- Badges -->
+<rect x="210" y="170" width="90" height="26" rx="13" fill="rgba(255,255,255,.1)"/>
+<text x="255" y="188" text-anchor="middle" font-size="11" fill="rgba(255,255,255,.7)" font-weight="600" font-family="sans-serif">15 Listings</text>
+<rect x="310" y="170" width="80" height="26" rx="13" fill="rgba(255,255,255,.1)"/>
+<text x="350" y="188" text-anchor="middle" font-size="11" fill="rgba(255,255,255,.7)" font-weight="600" font-family="sans-serif">AR | EN</text>
+<rect x="400" y="170" width="80" height="26" rx="13" fill="rgba(255,255,255,.1)"/>
+<text x="440" y="188" text-anchor="middle" font-size="11" fill="rgba(255,255,255,.7)" font-weight="600" font-family="sans-serif">6 Areas</text>
+<rect x="490" y="170" width="90" height="26" rx="13" fill="rgba(255,255,255,.1)"/>
+<text x="535" y="188" text-anchor="middle" font-size="11" fill="rgba(255,255,255,.7)" font-weight="600" font-family="sans-serif">OTP Login</text>
+<!-- Author -->
+<text x="780" y="235" text-anchor="end" font-size="10" fill="rgba(255,255,255,.25)" font-family="sans-serif">Ali AlEnezi · @SiteQ8 · 3li.info</text>
+</svg>
