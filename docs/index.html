@@ -388,8 +388,42 @@ return pg}
 
 // ═══ BOOKINGS ═══
 function renderBookings(){
-var pg=n('div',{className:'pg on'});pg.appendChild(n('div',{style:{padding:'20px 16px 10px',fontSize:'1.3rem',fontWeight:'900'}},t('myBookings')));
-pg.appendChild(n('div',{style:{textAlign:'center',padding:'60px',color:'var(--t3)'},innerHTML:'<div style="font-size:3rem;margin-bottom:10px">📋</div>'+t('noBookings')}));
+var pg=n('div',{className:'pg on'});
+pg.appendChild(n('div',{style:{padding:'20px 16px 10px',fontSize:'1.3rem',fontWeight:'900'}},t('myBookings')));
+
+// Demo bookings
+var bookings=[
+{id:'WB-2847',listing:'Fun Summer Club',listing_ar:'نادي الصيف المرح',pkg:'Monthly',pkg_ar:'شهري',amount:120,status:'confirmed',date:'2025-06-01',end:'2025-06-30',color:'#6366f1',progress:65},
+{id:'WB-2845',listing:'Swimming Academy',listing_ar:'أكاديمية السباحة',pkg:'8 Sessions',pkg_ar:'٨ حصص',amount:45,status:'completed',date:'2025-05-15',end:'2025-06-10',color:'#0ea5e9',progress:100},
+{id:'WB-2840',listing:'Al Noor Nursery',listing_ar:'حضانة النور',pkg:'Full Month',pkg_ar:'شهري كامل',amount:180,status:'pending',date:'2025-06-01',end:'2025-06-30',color:'#ec4899',progress:10}
+];
+
+var statusLabels={confirmed:{ar:'مؤكد',en:'Confirmed',bg:'#d1fae5',c:'#065f46'},completed:{ar:'مكتمل',en:'Completed',bg:'#e0e7ff',c:'#3730a3'},pending:{ar:'قيد الانتظار',en:'Pending',bg:'#fef3c7',c:'#92400e'},cancelled:{ar:'ملغي',en:'Cancelled',bg:'#fee2e2',c:'#991b1b'}};
+
+bookings.forEach(function(b){
+var card=n('div',{style:{background:'#fff',borderRadius:'16px',padding:'16px',margin:'0 16px 10px',boxShadow:'0 2px 8px rgba(0,0,0,.04)',border:'1px solid var(--border)'}});
+// Top row
+var top=n('div',{style:{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:'10px'}});
+top.appendChild(n('span',{style:{fontFamily:'monospace',fontSize:'.72rem',color:'var(--t3)',fontWeight:'600'}},'#'+b.id));
+var st=statusLabels[b.status];
+top.appendChild(n('span',{style:{fontSize:'.65rem',fontWeight:'700',padding:'3px 10px',borderRadius:'8px',background:st.bg,color:st.c}},st[isRtl()?'ar':'en']));
+card.appendChild(top);
+
+// Listing name
+card.appendChild(n('div',{style:{fontSize:'.95rem',fontWeight:'700',marginBottom:'4px'}},isRtl()?b.listing_ar:b.listing));
+card.appendChild(n('div',{style:{fontSize:'.72rem',color:'var(--t2)',marginBottom:'8px'}},(isRtl()?b.pkg_ar:b.pkg)+' · '+b.amount+' '+(isRtl()?'د.ك':'KD')));
+card.appendChild(n('div',{style:{fontSize:'.65rem',color:'var(--t3)',marginBottom:'8px',direction:'ltr'}},b.date+' → '+b.end));
+
+// Progress bar
+if(b.status!=='completed'&&b.status!=='cancelled'){
+var bar=n('div',{style:{height:'6px',background:'#f1f5f9',borderRadius:'3px',overflow:'hidden'}});
+bar.appendChild(n('div',{style:{height:'100%',width:b.progress+'%',background:'linear-gradient(90deg,'+b.color+','+b.color+'88)',borderRadius:'3px'}}));
+card.appendChild(bar);
+}
+
+pg.appendChild(card);
+});
+
 return pg}
 
 // ═══ PROFILE ═══
@@ -410,6 +444,7 @@ var menu=[
 ['❤️',t('favs'),'#fce4ec'],
 ['🏷️',t('offers'),'#fff8e1'],
 ['🌐',t('lang'),'#f3e5f5',function(){S.lang=S.lang==='ar'?'en':'ar';render()}],
+['🖥️',isRtl()?'لوحة الإدارة':'Admin Dashboard','#ede9fe',function(){window.open('admin.html','_blank')}],
 ['⚙️',t('settings'),'#f5f5f5'],
 ['❓',t('help'),'#e0f7fa'],
 ['🚪',t('logout'),'#ffebee']
