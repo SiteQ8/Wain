@@ -127,9 +127,9 @@ html{font-size:16px}body{font-family:'Tajawal',sans-serif;background:var(--bg);c
 <script>
 
 // ═══ STATE ═══
-var S={loggedIn:false,lang:'ar',tab:'home',page:'home',detail:null,favs:{},phone:'',otp:'',otpSent:false};
-var T={ar:{app:'وين',tag:'وين تبي تروح؟',home:'الرئيسية',search:'البحث',favs:'المفضلة',bookings:'حجوزاتي',profile:'حسابي',nursery:'حضانات',summerClub:'نوادي صيفية',activity:'أنشطة',babysitter:'مربيات',featured:'عروض مميزة',recommended:'نرشح لك',viewAll:'عرض الكل',bookNow:'احجز الآن',call:'اتصل',from:'من',kd:'د.ك',reviews:'تقييم',age:'الأعمار',years:'سنة',facilities:'المرافق',packages:'الباقات',schedule:'المواعيد',area:'المنطقة',back:'رجوع',kids:'أطفالي',settings:'الإعدادات',lang:'English',logout:'خروج',help:'المساعدة',myBookings:'حجوزاتي',noBookings:'لا توجد حجوزات بعد',offers:'العروض',swimming:'مسبح',playground:'ملعب',ac:'تكييف',meals:'وجبات',bus:'مواصلات',parking:'مواقف',cctv:'كاميرات',medical:'إسعافات',wifi:'واي فاي',outdoor:'خارجي',indoor:'داخلي',monthPlan:'شهري',weekPlan:'أسبوعي',dailyPlan:'يومي',description:'الوصف',sunToThu:'الأحد - الخميس',searchPlaceholder:'ابحث عن حضانة، نادي صيفي...',filter:'تصنيف',allAreas:'جميع المناطق',farwaniya:'الفروانية',hawalli:'حولي',salmiya:'السالمية',sabahSalem:'صباح السالم',jahra:'الجهراء',capital:'العاصمة',all:'الكل'},
-en:{app:'Wain',tag:'Where do you wanna go?',home:'Home',search:'Search',favs:'Favorites',bookings:'Bookings',profile:'Profile',nursery:'Nurseries',summerClub:'Summer Clubs',activity:'Activities',babysitter:'Babysitters',featured:'Featured',recommended:'Recommended',viewAll:'View All',bookNow:'Book Now',call:'Call',from:'From',kd:'KD',reviews:'reviews',age:'Ages',years:'yrs',facilities:'Facilities',packages:'Packages',schedule:'Schedule',area:'Area',back:'Back',kids:'My Kids',settings:'Settings',lang:'العربية',logout:'Log Out',help:'Help',myBookings:'My Bookings',noBookings:'No bookings yet',offers:'Offers',swimming:'Swimming',playground:'Playground',ac:'A/C',meals:'Meals',bus:'Transport',parking:'Parking',cctv:'CCTV',medical:'Medical',wifi:'WiFi',outdoor:'Outdoor',indoor:'Indoor',monthPlan:'Monthly',weekPlan:'Weekly',dailyPlan:'Daily',description:'Description',sunToThu:'Sun - Thu',searchPlaceholder:'Search nurseries, summer clubs...',filter:'Filter',allAreas:'All Areas',farwaniya:'Farwaniya',hawalli:'Hawalli',salmiya:'Salmiya',sabahSalem:'Sabah Al Salem',jahra:'Jahra',capital:'Capital',all:'All'}};
+var S={loggedIn:false,lang:'ar',tab:'home',page:'home',detail:null,favs:{},phone:'',otp:'',otpSent:false,showBooking:false,selectedPkg:0,bookingConfirmed:false,coupon:'',couponOk:false,payMethod:'knet',selectedKid:0};
+var T={ar:{app:'وين',tag:'وين تبي تروح؟',home:'الرئيسية',search:'البحث',favs:'المفضلة',bookings:'حجوزاتي',profile:'حسابي',nursery:'حضانات',summerClub:'نوادي صيفية',activity:'أنشطة',babysitter:'مربيات',featured:'عروض مميزة',recommended:'نرشح لك',viewAll:'عرض الكل',bookNow:'احجز الآن',call:'اتصل',from:'من',kd:'د.ك',reviews:'تقييم',age:'الأعمار',years:'سنة',facilities:'المرافق',packages:'الباقات',schedule:'المواعيد',area:'المنطقة',back:'رجوع',kids:'أطفالي',settings:'الإعدادات',lang:'English',logout:'خروج',help:'المساعدة',myBookings:'حجوزاتي',noBookings:'لا توجد حجوزات بعد',offers:'العروض',swimming:'مسبح',playground:'ملعب',ac:'مكيّف',meals:'وجبات',bus:'مواصلات',parking:'مواقف',cctv:'كاميرات',medical:'إسعافات',wifi:'واي فاي',outdoor:'خارجي',indoor:'داخلي',monthPlan:'شهري',weekPlan:'أسبوعي',dailyPlan:'يومي',description:'الوصف',sunToThu:'الأحد - الخميس',searchPlaceholder:'ابحث عن حضانة، نادي صيفي...',filter:'تصنيف',allAreas:'جميع المناطق',farwaniya:'الفروانية',hawalli:'حولي',salmiya:'السالمية',sabahSalem:'صباح السالم',jahra:'الجهراء',capital:'العاصمة',all:'الكل',selectPackage:'اختر الباقة',selectKid:'اختر الطفل',startDate:'تاريخ البدء',paymentMethod:'طريقة الدفع',knet:'كي نت',creditCard:'بطاقة ائتمان',applePay:'Apple Pay',cash:'دفع عند الوصول',couponCode:'كود خصم',apply:'تطبيق',confirmBooking:'تأكيد الحجز',bookingDone:'تم الحجز بنجاح!',bookingTrack:'سيتم التواصل معك خلال ساعة لتأكيد الحجز',total:'المجموع',discount:'خصم',addKid:'إضافة طفل',kidName:'اسم الطفل',kidAge:'العمر',goToBookings:'عرض حجوزاتي',earnedPts:'نقاط مكتسبة',paySecure:'ادفع بأمان'},
+en:{app:'Wain',tag:'Where do you wanna go?',home:'Home',search:'Search',favs:'Favorites',bookings:'Bookings',profile:'Profile',nursery:'Nurseries',summerClub:'Summer Clubs',activity:'Activities',babysitter:'Babysitters',featured:'Featured',recommended:'Recommended',viewAll:'View All',bookNow:'Book Now',call:'Call',from:'From',kd:'KD',reviews:'reviews',age:'Ages',years:'yrs',facilities:'Facilities',packages:'Packages',schedule:'Schedule',area:'Area',back:'Back',kids:'My Kids',settings:'Settings',lang:'العربية',logout:'Log Out',help:'Help',myBookings:'My Bookings',noBookings:'No bookings yet',offers:'Offers',swimming:'Swimming',playground:'Playground',ac:'A/C',meals:'Meals',bus:'Transport',parking:'Parking',cctv:'CCTV',medical:'Medical',wifi:'WiFi',outdoor:'Outdoor',indoor:'Indoor',monthPlan:'Monthly',weekPlan:'Weekly',dailyPlan:'Daily',description:'Description',sunToThu:'Sun - Thu',searchPlaceholder:'Search nurseries, summer clubs...',filter:'Filter',allAreas:'All Areas',farwaniya:'Farwaniya',hawalli:'Hawalli',salmiya:'Salmiya',sabahSalem:'Sabah Al Salem',jahra:'Jahra',capital:'Capital',all:'All',selectPackage:'Select Package',selectKid:'Select Child',startDate:'Start Date',paymentMethod:'Payment Method',knet:'KNET',creditCard:'Credit Card',applePay:'Apple Pay',cash:'Cash on Arrival',couponCode:'Promo Code',apply:'Apply',confirmBooking:'Confirm Booking',bookingDone:'Booking Confirmed!',bookingTrack:'We\'ll contact you within 1 hour to confirm',total:'Total',discount:'Discount',addKid:'Add Child',kidName:'Child Name',kidAge:'Age',goToBookings:'View My Bookings',earnedPts:'Points Earned',paySecure:'Pay Securely'}};
 
 function t(k){return T[S.lang][k]||k}
 function isRtl(){return S.lang==='ar'}
@@ -207,6 +207,111 @@ lg.appendChild(card);
 lg.appendChild(n('div',{style:{marginTop:'16px',textAlign:'center',width:'100%'}},n('div',{style:{background:'rgba(255,255,255,.06)',borderRadius:'12px',padding:'10px',border:'1px dashed rgba(255,255,255,.12)',fontSize:'.7rem',color:'rgba(255,255,255,.45)'}},isRtl()?'📱 أدخل أي رقم ← إرسال ← أي ٤ أرقام':'📱 Enter any phone → Send OTP → Any 4 digits')));
 lg.appendChild(n('div',{style:{marginTop:'14px',fontSize:'.55rem',color:'rgba(255,255,255,.2)',textAlign:'center'}},'Wain v1.0 — @SiteQ8 · Ali AlEnezi'));
 root.appendChild(lg);return}
+
+
+// ═══ BOOKING FLOW ═══
+if(S.showBooking&&S.detail){
+var l=S.detail;
+if(S.bookingConfirmed){
+// ═══ BOOKING SUCCESS ═══
+var succ=n('div',{style:{position:'fixed',inset:'0',background:'#fff',zIndex:'300',maxWidth:'var(--max)',margin:'0 auto',display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',padding:'40px',textAlign:'center',background:'linear-gradient(135deg,#f0fdf4,#eff6ff)'}});
+succ.appendChild(n('div',{style:{fontSize:'5rem',marginBottom:'16px'}},'✅'));
+succ.appendChild(n('div',{style:{fontSize:'1.5rem',fontWeight:'900',color:'#059669',marginBottom:'6px'}},t('bookingDone')));
+succ.appendChild(n('div',{style:{fontSize:'.85rem',color:'#64748b',marginBottom:'24px'}},t('bookingTrack')));
+var scard=n('div',{style:{background:'#fff',borderRadius:'16px',padding:'20px',width:'100%',boxShadow:'0 2px 12px rgba(0,0,0,.06)',textAlign:isRtl()?'right':'left'}});
+scard.innerHTML='<div style="display:flex;justify-content:space-between;margin-bottom:10px"><span style="color:#9ca3af;font-size:.82rem">'+(isRtl()?'رقم الحجز':'Booking ID')+'</span><span style="font-weight:700;font-family:monospace">#WB-'+Math.floor(Math.random()*9000+1000)+'</span></div>';
+scard.innerHTML+='<div style="display:flex;justify-content:space-between;margin-bottom:10px"><span style="color:#9ca3af;font-size:.82rem">'+(isRtl()?'المكان':'Listing')+'</span><span style="font-weight:700">'+l[isRtl()?'name_ar':'name_en']+'</span></div>';
+var pkg=l.prices[S.selectedPkg];
+var disc=S.couponOk?pkg.price*0.2:0;
+scard.innerHTML+='<div style="display:flex;justify-content:space-between;margin-bottom:10px"><span style="color:#9ca3af;font-size:.82rem">'+t('total')+'</span><span style="font-weight:800;color:#059669">'+(pkg.price-disc).toFixed(0)+' '+t('kd')+'</span></div>';
+scard.innerHTML+='<div style="display:flex;justify-content:space-between"><span style="color:#9ca3af;font-size:.82rem">'+t('earnedPts')+'</span><span style="font-weight:700;color:#f59e0b">+'+Math.floor(pkg.price*5)+' ⭐</span></div>';
+succ.appendChild(scard);
+succ.appendChild(n('button',{style:{marginTop:'20px',padding:'14px 40px',borderRadius:'14px',background:'#059669',color:'#fff',border:'none',fontSize:'1rem',fontWeight:'800',cursor:'pointer',fontFamily:'inherit'},onclick:function(){S.showBooking=false;S.bookingConfirmed=false;S.tab='bookings';S.page='home';S.detail=null;render()}},t('goToBookings')));
+succ.appendChild(n('button',{style:{marginTop:'10px',padding:'10px 30px',borderRadius:'12px',background:'transparent',color:'#64748b',border:'none',fontSize:'.82rem',cursor:'pointer',fontFamily:'inherit'},onclick:function(){S.showBooking=false;S.bookingConfirmed=false;render()}},t('back')));
+root.appendChild(succ);return;
+}
+
+// ═══ BOOKING FORM ═══
+var sheet=n('div',{style:{position:'fixed',inset:'0',background:'#fff',zIndex:'300',maxWidth:'var(--max)',margin:'0 auto',overflowY:'auto'}});
+// Header
+var hdr=n('div',{style:{display:'flex',alignItems:'center',gap:'10px',padding:'16px',position:'sticky',top:'0',background:'#fff',zIndex:'5',borderBottom:'1px solid var(--border)'}});
+hdr.appendChild(n('button',{style:{background:'none',border:'none',fontSize:'1.2rem',cursor:'pointer'},onclick:function(){S.showBooking=false;render()}},'←'));
+hdr.appendChild(n('div',{style:{fontSize:'1.1rem',fontWeight:'800',flex:'1'}},t('bookNow')));
+sheet.appendChild(hdr);
+
+var body=n('div',{style:{padding:'16px 16px 100px'}});
+
+// Listing info
+var linfo=n('div',{style:{background:'linear-gradient(135deg,'+l.color+','+l.color+'cc)',borderRadius:'16px',padding:'16px',color:'#fff',marginBottom:'16px'}});
+linfo.appendChild(n('div',{style:{fontSize:'1.5rem',marginBottom:'4px'}},l.photos[0]));
+linfo.appendChild(n('div',{style:{fontSize:'1rem',fontWeight:'800'}},l[isRtl()?'name_ar':'name_en']));
+linfo.appendChild(n('div',{style:{fontSize:'.72rem',opacity:'.8',marginTop:'4px'}},'⭐ '+l.rating+' · '+l[isRtl()?'addr_ar':'addr_en']));
+body.appendChild(linfo);
+
+// Select package
+body.appendChild(n('div',{style:{fontSize:'.82rem',fontWeight:'700',marginBottom:'8px',color:'var(--t2)'}},t('selectPackage')));
+l.prices.forEach(function(p,i){
+var po=n('div',{style:{background:'#fff',borderRadius:'12px',padding:'14px',marginBottom:'6px',border:'2px solid '+(S.selectedPkg===i?'var(--primary)':'var(--border)'),cursor:'pointer',display:'flex',justifyContent:'space-between',alignItems:'center'},onclick:function(){S.selectedPkg=i;render()}});
+po.appendChild(n('div',{style:{fontWeight:'600',fontSize:'.88rem'}},p[isRtl()?'name_ar':'name_en']));
+po.appendChild(n('div',{style:{fontWeight:'800',fontSize:'1rem',color:'var(--primary)'}},p.price+' '+t('kd')));
+body.appendChild(po);
+});
+
+// Select kid
+body.appendChild(n('div',{style:{fontSize:'.82rem',fontWeight:'700',margin:'14px 0 8px',color:'var(--t2)'}},t('selectKid')));
+USER.kids.forEach(function(k,i){
+var ko=n('div',{style:{background:'#fff',borderRadius:'12px',padding:'12px',marginBottom:'6px',border:'2px solid '+(S.selectedKid===i?'var(--primary)':'var(--border)'),cursor:'pointer',display:'flex',alignItems:'center',gap:'10px'},onclick:function(){S.selectedKid=i;render()}});
+ko.appendChild(n('span',{style:{fontSize:'1.3rem'}},k.gender==='girl'?'👧':'👦'));
+ko.appendChild(n('span',{style:{fontWeight:'600',fontSize:'.85rem'}},k.name+' ('+k.age+')'));
+body.appendChild(ko);
+});
+
+// Start date
+body.appendChild(n('div',{style:{fontSize:'.82rem',fontWeight:'700',margin:'14px 0 8px',color:'var(--t2)'}},t('startDate')));
+var dateInp=n('input',{type:'date',style:{width:'100%',padding:'12px 14px',borderRadius:'12px',border:'1.5px solid var(--border)',fontSize:'.88rem',fontFamily:'inherit',background:'#fff'}});
+dateInp.value='2025-06-01';
+body.appendChild(dateInp);
+
+// Coupon
+body.appendChild(n('div',{style:{fontSize:'.82rem',fontWeight:'700',margin:'14px 0 8px',color:'var(--t2)'}},t('couponCode')));
+var couponRow=n('div',{style:{display:'flex',gap:'8px'}});
+var ci=n('input',{type:'text',placeholder:'SUMMER25',style:{flex:'1',padding:'12px 14px',borderRadius:'12px',border:'1.5px solid var(--border)',fontSize:'.88rem',fontFamily:'inherit',direction:'ltr'}});
+ci.value=S.coupon;ci.oninput=function(){S.coupon=this.value};
+couponRow.appendChild(ci);
+couponRow.appendChild(n('button',{style:{padding:'12px 18px',borderRadius:'12px',background:'var(--primary)',color:'#fff',border:'none',fontSize:'.82rem',fontWeight:'700',cursor:'pointer',fontFamily:'inherit'},onclick:function(){if(S.coupon.toUpperCase()==='SUMMER25'||S.coupon.toUpperCase()==='WAIN10'){S.couponOk=true;render()}}},t('apply')));
+body.appendChild(couponRow);
+if(S.couponOk)body.appendChild(n('div',{style:{color:'#059669',fontSize:'.72rem',marginTop:'4px'}},'✓ '+(isRtl()?'تم تطبيق الخصم ٢٠٪':'20% discount applied!')));
+
+// Payment method
+body.appendChild(n('div',{style:{fontSize:'.82rem',fontWeight:'700',margin:'14px 0 8px',color:'var(--t2)'}},t('paymentMethod')));
+[['knet','🏧',t('knet')],['card','💳',t('creditCard')],['apple','',t('applePay')],['cash','💵',t('cash')]].forEach(function(m){
+var mo=n('div',{style:{display:'flex',alignItems:'center',gap:'10px',padding:'12px',borderRadius:'12px',marginBottom:'6px',cursor:'pointer',border:'2px solid '+(S.payMethod===m[0]?'var(--primary)':'var(--border)'),background:S.payMethod===m[0]?'#f0ecff':'#fff'},onclick:function(){S.payMethod=m[0];render()}});
+mo.appendChild(n('span',{style:{fontSize:'1.2rem'}},m[1]));
+mo.appendChild(n('span',{style:{fontSize:'.85rem',fontWeight:'600',flex:'1'}},m[2]));
+var radio=n('div',{style:{width:'18px',height:'18px',borderRadius:'50%',border:'2px solid '+(S.payMethod===m[0]?'var(--primary)':'#cbd5e1'),display:'flex',alignItems:'center',justifyContent:'center'}});
+if(S.payMethod===m[0])radio.appendChild(n('div',{style:{width:'10px',height:'10px',borderRadius:'50%',background:'var(--primary)'}}));
+mo.appendChild(radio);
+body.appendChild(mo);
+});
+
+sheet.appendChild(body);
+
+// Total + CTA
+var pkg=l.prices[S.selectedPkg];
+var disc=S.couponOk?pkg.price*0.2:0;
+var total=pkg.price-disc;
+
+var cta=n('div',{style:{position:'fixed',bottom:'0',left:'50%',transform:'translateX(-50%)',width:'100%',maxWidth:'var(--max)',padding:'12px 16px',background:'#fff',borderTop:'1px solid var(--border)'}});
+if(disc>0)cta.appendChild(n('div',{style:{display:'flex',justifyContent:'space-between',fontSize:'.78rem',color:'#059669',marginBottom:'4px'}},n('span',{},t('discount')),n('span',{},'-'+disc.toFixed(0)+' '+t('kd'))));
+var totalRow=n('div',{style:{display:'flex',justifyContent:'space-between',fontSize:'.95rem',fontWeight:'800',marginBottom:'10px'}});
+totalRow.appendChild(n('span',{},t('total')));
+totalRow.appendChild(n('span',{style:{color:'var(--primary)'}},total.toFixed(0)+' '+t('kd')));
+cta.appendChild(totalRow);
+cta.appendChild(n('button',{style:{width:'100%',padding:'15px',borderRadius:'14px',border:'none',background:'linear-gradient(135deg,#059669,#10b981)',color:'#fff',fontSize:'1rem',fontWeight:'800',cursor:'pointer',fontFamily:'inherit',boxShadow:'0 4px 16px rgba(5,150,105,.3)'},onclick:function(){S.bookingConfirmed=true;render()}},t('confirmBooking')+' — '+total.toFixed(0)+' '+t('kd')));
+sheet.appendChild(cta);
+
+root.appendChild(sheet);return;
+}
 
 if(S.page==='detail'&&S.detail){root.appendChild(renderDetail());return}
 
@@ -342,7 +447,7 @@ pg.appendChild(sched);
 // Action bar
 var bar=n('div',{className:'action-bar'});
 bar.appendChild(n('button',{className:'action-btn btn-wa',onclick:function(){window.open('https://wa.me/'+l.whatsapp.replace('+',''),'_blank')}},'💬 WhatsApp'));
-bar.appendChild(n('button',{className:'action-btn btn-primary',onclick:function(){alert(S.lang==='ar'?'سيتم فتح صفحة الحجز قريباً!':'Booking page coming soon!')}},t('bookNow')));
+bar.appendChild(n('button',{className:'action-btn btn-primary',onclick:function(){S.showBooking=true;S.bookingConfirmed=false;S.selectedPkg=0;S.coupon='';S.couponOk=false;S.payMethod='knet';render()}},t('bookNow')));
 pg.appendChild(bar);
 
 return pg}
