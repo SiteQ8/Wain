@@ -15,7 +15,7 @@
 [![React](https://img.shields.io/badge/React-Admin-61DAFB?style=flat-square&logo=react)]()
 [![Bilingual](https://img.shields.io/badge/AR_|_EN-Bilingual-6366f1?style=flat-square)]()
 
-**"وين تبين تروح؟"** — Help parents in Kuwait discover, compare, and book the best activities for their kids.
+**"وين تبي تروح؟"** — Help parents in Kuwait discover, compare, and book the best activities for their kids.
 
 [**Live Demo**](https://siteq8.github.io/Wain) · [**Firestore Schema**](firebase/firestore-schema.md) · [**Flutter Models**](flutter-app/lib/models/)
 
@@ -33,7 +33,7 @@
 
 ### User App
 - **OTP Login** — Phone + 4-digit code + quick demo login
-- **Home** — "وين تبين تروح?" search, featured slider, categories, recommendations
+- **Home** — "وين تبي تروح?" search, featured slider, categories, recommendations
 - **Search** — Filter by area, type, age, rating, transport. 15 listings
 - **Detail** — Gallery, prices, facilities, reviews, WhatsApp/Call, Book Now
 - **Booking** — Package selection, dates, coupon codes, status tracking
