@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" id="root">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#6366f1">
+<title>Wain | وين — Kuwait Kids Activities</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='85'>🎯</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{--primary:#6366f1;--primary2:#818cf8;--primary3:#4f46e5;--bg:#faf8ff;--card:#fff;--border:#f0ecff;--sh:0 2px 12px rgba(99,102,241,.06);
+--pink:#ec4899;--green:#10b981;--amber:#f59e0b;--sky:#0ea5e9;--red:#ef4444;
+--tx:#1e1b4b;--t2:#64748b;--t3:#94a3b8;--r:16px;--nav:60px;--max:430px}
+html{font-size:16px}body{font-family:'Tajawal',sans-serif;background:var(--bg);color:var(--tx);min-height:100vh;max-width:var(--max);margin:0 auto;overflow-x:hidden}
+[dir="ltr"] body{font-family:'Inter','Tajawal',sans-serif}
+
+.pg{display:none;padding-bottom:calc(var(--nav) + 10px);min-height:100vh}.pg.on{display:block}
+.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:var(--max);background:#fff;border-top:1px solid var(--border);display:flex;height:var(--nav);padding-bottom:env(safe-area-inset-bottom);z-index:100}
+.nav-i{flex:1;text-align:center;padding:8px 0;cursor:pointer}.nav-i .ic{font-size:1.3rem;display:block;transition:transform .1s}.nav-i.on .ic{transform:scale(1.1)}.nav-i .lb{font-size:.55rem;display:block;margin-top:2px;color:var(--t3)}.nav-i.on .lb{color:var(--primary);font-weight:700}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#6366f1,#818cf8,#a78bfa);padding:24px 16px 28px;color:#fff;border-radius:0 0 28px 28px;margin-bottom:-14px;position:relative;z-index:2}
+.hero::after{content:'';position:absolute;bottom:-14px;left:0;right:0;height:28px;background:var(--bg);border-radius:28px 28px 0 0}
+.hero-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.hero-hello{font-size:.78rem;opacity:.8}.hero-name{font-size:1.2rem;font-weight:900}
+.hero-actions{display:flex;gap:8px}
+.hero-btn{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.15);border:none;display:flex;align-items:center;justify-content:center;font-size:1rem;cursor:pointer;position:relative}
+.hero-badge{position:absolute;top:-2px;right:-2px;width:14px;height:14px;border-radius:50%;background:var(--red);font-size:.5rem;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700}
+
+.search-bar{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.2);backdrop-filter:blur(8px);border-radius:14px;padding:11px 16px;cursor:pointer}
+.search-bar .ico{font-size:1rem;opacity:.7}.search-bar .txt{font-size:.85rem;opacity:.6;flex:1}
+
+/* CATEGORIES */
+.cats{display:flex;justify-content:space-around;padding:22px 16px 12px}
+.cat-i{text-align:center;cursor:pointer;width:70px}
+.cat-ic{width:54px;height:54px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin:0 auto 6px;box-shadow:0 4px 14px rgba(0,0,0,.06)}
+.cat-lb{font-size:.62rem;font-weight:600;color:var(--t2)}
+
+/* SECTION */
+.sec{padding:4px 16px}.sec-t{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.sec-t h3{font-size:1rem;font-weight:800}.sec-t a{font-size:.72rem;color:var(--primary);text-decoration:none;font-weight:600}
+
+/* LISTING CARD */
+.lcard{background:var(--card);border-radius:18px;overflow:hidden;margin-bottom:12px;box-shadow:var(--sh);cursor:pointer;border:1px solid var(--border)}
+.lcard-img{height:160px;background-size:cover;background-position:center;position:relative}
+.lcard-badge{position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:8px;font-size:.6rem;font-weight:700;color:#fff}
+[dir="ltr"] .lcard-badge{left:auto;right:10px}
+.lcard-fav{position:absolute;top:10px;right:10px;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.85);display:flex;align-items:center;justify-content:center;font-size:.9rem;cursor:pointer;border:none}
+[dir="ltr"] .lcard-fav{right:auto;left:10px}
+.lcard-body{padding:12px 14px}
+.lcard-type{font-size:.55rem;color:var(--primary);font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.lcard-name{font-size:.95rem;font-weight:800;margin-top:2px}
+.lcard-loc{font-size:.68rem;color:var(--t2);margin-top:3px;display:flex;align-items:center;gap:4px}
+.lcard-row{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+.lcard-rating{display:flex;align-items:center;gap:3px;font-size:.72rem;font-weight:600}
+.lcard-price{font-size:.88rem;font-weight:800;color:var(--primary)}
+.lcard-tags{display:flex;gap:4px;margin-top:6px;flex-wrap:wrap}
+.lcard-tag{font-size:.52rem;padding:2px 8px;border-radius:6px;background:#f0ecff;color:var(--primary);font-weight:600}
+
+/* FEATURED SLIDER */
+.featured{display:flex;gap:12px;overflow-x:auto;padding:0 16px 10px;-webkit-overflow-scrolling:touch}
+.featured::-webkit-scrollbar{display:none}
+.feat-card{flex:0 0 auto;width:280px;height:150px;border-radius:18px;overflow:hidden;position:relative;cursor:pointer;background-size:cover;background-position:center}
+.feat-overlay{position:absolute;inset:0;background:linear-gradient(transparent,rgba(0,0,0,.7));display:flex;flex-direction:column;justify-content:flex-end;padding:14px}
+.feat-badge{position:absolute;top:10px;right:10px;padding:4px 10px;border-radius:8px;background:var(--primary);color:#fff;font-size:.55rem;font-weight:700}
+[dir="ltr"] .feat-badge{right:auto;left:10px}
+.feat-name{font-size:.95rem;font-weight:800;color:#fff}
+.feat-meta{font-size:.65rem;color:rgba(255,255,255,.8);margin-top:2px}
+
+/* DETAIL PAGE */
+.detail-hero{height:240px;background-size:cover;background-position:center;position:relative}
+.detail-overlay{position:absolute;inset:0;background:linear-gradient(transparent 50%,rgba(0,0,0,.7))}
+.detail-back{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.85);border:none;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center}
+[dir="ltr"] .detail-back{right:auto;left:14px}
+.detail-body{padding:0 16px;margin-top:-40px;position:relative;z-index:2}
+.detail-card{background:var(--card);border-radius:18px;padding:18px;box-shadow:0 4px 20px rgba(0,0,0,.08)}
+.detail-type{font-size:.55rem;color:var(--primary);font-weight:700;text-transform:uppercase}
+.detail-name{font-size:1.3rem;font-weight:900;margin-top:2px}
+.detail-loc{font-size:.75rem;color:var(--t2);margin-top:4px}
+.detail-stats{display:flex;gap:16px;margin-top:10px}
+.detail-stat{font-size:.72rem;display:flex;align-items:center;gap:4px;color:var(--t2)}
+.detail-stat b{color:var(--tx)}
+
+.detail-section{padding:0 16px;margin-top:16px}
+.detail-section h4{font-size:.88rem;font-weight:800;margin-bottom:8px}
+
+.facility-grid{display:flex;gap:8px;flex-wrap:wrap}
+.facility{display:flex;align-items:center;gap:5px;padding:6px 12px;background:#f0ecff;border-radius:10px;font-size:.68rem;font-weight:600;color:var(--primary)}
+
+.pkg-card{background:var(--card);border:2px solid var(--border);border-radius:14px;padding:14px;margin-bottom:8px;cursor:pointer}
+.pkg-card.on{border-color:var(--primary);background:#faf8ff}
+.pkg-name{font-size:.85rem;font-weight:700}.pkg-price{font-size:1.1rem;font-weight:900;color:var(--primary);margin-top:2px}
+.pkg-dur{font-size:.65rem;color:var(--t2)}
+
+.action-bar{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:var(--max);padding:10px 16px;background:#fff;border-top:1px solid var(--border);display:flex;gap:10px;z-index:100}
+.action-btn{flex:1;padding:14px;border-radius:14px;border:none;font-size:.9rem;font-weight:800;cursor:pointer;font-family:inherit;text-align:center}
+.btn-primary{background:var(--primary);color:#fff;box-shadow:0 4px 16px rgba(99,102,241,.3)}
+.btn-wa{background:#25d366;color:#fff}
+.btn-call{background:var(--sky);color:#fff}
+.btn-outline{background:#fff;border:2px solid var(--primary);color:var(--primary)}
+
+/* OFFERS */
+.offer-banner{margin:0 16px 12px;border-radius:16px;padding:16px;position:relative;overflow:hidden;cursor:pointer}
+.offer-banner::before{content:'';position:absolute;top:-20px;right:-20px;width:100px;height:100px;border-radius:50%;background:rgba(255,255,255,.1)}
+
+/* PROFILE */
+.prof-header{background:linear-gradient(135deg,var(--primary),var(--primary2));padding:30px 16px;color:#fff;text-align:center;border-radius:0 0 28px 28px}
+.prof-avatar{width:72px;height:72px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:2rem;margin:0 auto 10px;border:3px solid rgba(255,255,255,.3)}
+.prof-name{font-size:1.2rem;font-weight:900}
+.prof-phone{font-size:.75rem;opacity:.7;margin-top:2px}
+.prof-kids{display:flex;gap:8px;justify-content:center;margin-top:12px}
+.prof-kid{padding:6px 14px;border-radius:20px;background:rgba(255,255,255,.15);font-size:.7rem;font-weight:600}
+
+.menu-item{display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--card);border-bottom:1px solid var(--border);cursor:pointer}
+.menu-ico{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+.menu-lbl{font-size:.88rem;font-weight:600;flex:1}
+.menu-arr{color:var(--t3);font-size:.8rem}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.lcard,.feat-card,.pkg-card,.menu-item{animation:fadeUp .25s ease both}
+::-webkit-scrollbar{width:0}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+
+// ═══ STATE ═══
+var S={lang:'ar',tab:'home',page:'home',detail:null,favs:{}};
+var T={ar:{app:'وين',tag:'وين تبين تروح؟',home:'الرئيسية',search:'البحث',favs:'المفضلة',bookings:'حجوزاتي',profile:'حسابي',nursery:'حضانات',summerClub:'نوادي صيفية',activity:'أنشطة',babysitter:'مربيات',featured:'عروض مميزة',recommended:'نرشح لك',viewAll:'عرض الكل',bookNow:'احجز الآن',call:'اتصل',from:'من',kd:'د.ك',reviews:'تقييم',age:'الأعمار',years:'سنة',facilities:'المرافق',packages:'الباقات',schedule:'المواعيد',area:'المنطقة',back:'رجوع',kids:'أطفالي',settings:'الإعدادات',lang:'English',logout:'خروج',help:'المساعدة',myBookings:'حجوزاتي',noBookings:'لا توجد حجوزات بعد',offers:'العروض',swimming:'مسبح',playground:'ملعب',ac:'تكييف',meals:'وجبات',bus:'مواصلات',parking:'مواقف',cctv:'كاميرات',medical:'إسعافات',wifi:'واي فاي',outdoor:'خارجي',indoor:'داخلي',monthPlan:'شهري',weekPlan:'أسبوعي',dailyPlan:'يومي',description:'الوصف',sunToThu:'الأحد - الخميس',searchPlaceholder:'ابحث عن حضانة، نادي صيفي...',filter:'تصنيف',allAreas:'جميع المناطق',farwaniya:'الفروانية',hawalli:'حولي',salmiya:'السالمية',sabahSalem:'صباح السالم',jahra:'الجهراء',capital:'العاصمة',all:'الكل'},
+en:{app:'Wain',tag:'Where do you wanna go?',home:'Home',search:'Search',favs:'Favorites',bookings:'Bookings',profile:'Profile',nursery:'Nurseries',summerClub:'Summer Clubs',activity:'Activities',babysitter:'Babysitters',featured:'Featured',recommended:'Recommended',viewAll:'View All',bookNow:'Book Now',call:'Call',from:'From',kd:'KD',reviews:'reviews',age:'Ages',years:'yrs',facilities:'Facilities',packages:'Packages',schedule:'Schedule',area:'Area',back:'Back',kids:'My Kids',settings:'Settings',lang:'العربية',logout:'Log Out',help:'Help',myBookings:'My Bookings',noBookings:'No bookings yet',offers:'Offers',swimming:'Swimming',playground:'Playground',ac:'A/C',meals:'Meals',bus:'Transport',parking:'Parking',cctv:'CCTV',medical:'Medical',wifi:'WiFi',outdoor:'Outdoor',indoor:'Indoor',monthPlan:'Monthly',weekPlan:'Weekly',dailyPlan:'Daily',description:'Description',sunToThu:'Sun - Thu',searchPlaceholder:'Search nurseries, summer clubs...',filter:'Filter',allAreas:'All Areas',farwaniya:'Farwaniya',hawalli:'Hawalli',salmiya:'Salmiya',sabahSalem:'Sabah Al Salem',jahra:'Jahra',capital:'Capital',all:'All'}};
+
+function t(k){return T[S.lang][k]||k}
+function isRtl(){return S.lang==='ar'}
+
+// ═══ DEMO DATA ═══
+var LISTINGS=[
+{id:'1',type:'summer_club',name_ar:'نادي الصيف المرح',name_en:'Fun Summer Club',desc_ar:'نادي صيفي متكامل للأطفال من ٤-١٢ سنة. أنشطة رياضية، فنية، علمية وترفيهية يومية مع مشرفين متخصصين.',desc_en:'Full summer club for kids 4-12. Daily sports, arts, science & fun activities with specialized supervisors.',area:'salmiya',addr_ar:'السالمية، شارع عمان، مجمع الأطفال',addr_en:'Salmiya, Oman St, Kids Complex',prices:[{name_ar:'شهري كامل',name_en:'Full Month',price:120,dur:'month'},{name_ar:'أسبوعي',name_en:'Weekly',price:40,dur:'week'},{name_ar:'يومي',name_en:'Daily',price:8,dur:'day'}],age_min:4,age_max:12,photos:['🏊','⚽','🎨'],rating:4.8,reviews:234,facilities:['swimming','playground','ac','meals','bus','cctv'],transport:true,featured:true,whatsapp:'+96599001234',phone:'+96522001234',color:'#6366f1',gradient:'linear-gradient(135deg,#6366f1,#a78bfa)'},
+{id:'2',type:'nursery',name_ar:'حضانة أطفال النور',name_en:'Al Noor Kids Nursery',desc_ar:'حضانة تعليمية متميزة تعتمد منهج مونتيسوري. بيئة آمنة ومحفزة للأطفال من عمر ٦ أشهر إلى ٤ سنوات.',desc_en:'Distinguished educational nursery using Montessori method. Safe and stimulating environment for ages 6 months to 4 years.',area:'hawalli',addr_ar:'حولي، شارع تونس، عمارة النور',addr_en:'Hawalli, Tunis St, Al Noor Building',prices:[{name_ar:'شهري',name_en:'Monthly',price:180,dur:'month'},{name_ar:'نصف يوم',name_en:'Half Day',price:100,dur:'month'}],age_min:0.5,age_max:4,photos:['👶','📚','🧩'],rating:4.9,reviews:456,facilities:['ac','meals','cctv','medical','indoor','playground'],transport:false,featured:true,whatsapp:'+96599005678',phone:'+96522005678',color:'#ec4899',gradient:'linear-gradient(135deg,#ec4899,#f472b6)'},
+{id:'3',type:'activity',name_ar:'أكاديمية السباحة الأولمبية',name_en:'Olympic Swimming Academy',desc_ar:'تعليم السباحة للأطفال والكبار. مدربين معتمدين دولياً. مسبح أولمبي مغطى ومكيف.',desc_en:'Swimming lessons for kids & adults. Internationally certified coaches. Indoor Olympic-sized heated pool.',area:'sabahSalem',addr_ar:'صباح السالم، القطعة ٣',addr_en:'Sabah Al Salem, Block 3',prices:[{name_ar:'٨ حصص',name_en:'8 Sessions',price:45,dur:'month'},{name_ar:'٤ حصص',name_en:'4 Sessions',price:25,dur:'2 weeks'},{name_ar:'حصة واحدة',name_en:'Single Session',price:8,dur:'day'}],age_min:3,age_max:16,photos:['🏊','🏅','💧'],rating:4.7,reviews:189,facilities:['swimming','ac','parking','cctv','indoor'],transport:false,featured:true,whatsapp:'+96599009876',phone:'+96522009876',color:'#0ea5e9',gradient:'linear-gradient(135deg,#0ea5e9,#38bdf8)'},
+{id:'4',type:'summer_club',name_ar:'نادي المغامرات الصيفي',name_en:'Adventure Summer Camp',desc_ar:'مخيم صيفي مليء بالمغامرات! رحلات ميدانية، تسلق، فنون قتالية، ورش عمل إبداعية.',desc_en:'Summer camp full of adventures! Field trips, climbing, martial arts, creative workshops.',area:'farwaniya',addr_ar:'الفروانية، القطعة ١، شارع حبيب مناور',addr_en:'Farwaniya, Block 1, Habib Munawer St',prices:[{name_ar:'الشهر كامل',name_en:'Full Month',price:95,dur:'month'},{name_ar:'أسبوع',name_en:'One Week',price:30,dur:'week'}],age_min:6,age_max:14,photos:['🧗','⛺','🎭'],rating:4.6,reviews:167,facilities:['outdoor','playground','meals','bus','parking'],transport:true,featured:false,whatsapp:'+96599112233',phone:'+96522112233',color:'#f59e0b',gradient:'linear-gradient(135deg,#f59e0b,#fbbf24)'},
+{id:'5',type:'nursery',name_ar:'حضانة براعم المستقبل',name_en:'Future Buds Nursery',desc_ar:'حضانة ثنائية اللغة (عربي/إنجليزي). تنمية المهارات المبكرة مع منهج تعليمي معتمد.',desc_en:'Bilingual nursery (Arabic/English). Early skills development with certified curriculum.',area:'capital',addr_ar:'شرق، برج الحمراء',addr_en:'Sharq, Al Hamra Tower',prices:[{name_ar:'شهري فل',name_en:'Full Month',price:200,dur:'month'},{name_ar:'شهري نصف يوم',name_en:'Half Day Monthly',price:130,dur:'month'}],age_min:1,age_max:4,photos:['🎒','🧒','📖'],rating:4.5,reviews:98,facilities:['ac','meals','cctv','medical','indoor','wifi'],transport:true,featured:false,whatsapp:'+96599334455',phone:'+96522334455',color:'#10b981',gradient:'linear-gradient(135deg,#10b981,#34d399)'},
+{id:'6',type:'babysitter',name_ar:'مربية أطفال — أم سارة',name_en:'Babysitter — Um Sarah',desc_ar:'مربية ذات خبرة ١٥ سنة. متخصصة في رعاية الرضع والأطفال. متاحة بالساعة أو اليوم.',desc_en:'15 years experience babysitter. Specialized in infant and child care. Available hourly or daily.',area:'hawalli',addr_ar:'حولي، الجابرية',addr_en:'Hawalli, Jabriya',prices:[{name_ar:'بالساعة',name_en:'Per Hour',price:3,dur:'hour'},{name_ar:'يوم كامل',name_en:'Full Day',price:20,dur:'day'},{name_ar:'ليلة (مبيت)',name_en:'Overnight',price:30,dur:'night'}],age_min:0,age_max:10,photos:['👩‍👧','🍼','🧸'],rating:4.9,reviews:87,facilities:['indoor','medical'],transport:false,featured:false,whatsapp:'+96599667788',phone:'+96599667788',color:'#8b5cf6',gradient:'linear-gradient(135deg,#8b5cf6,#a78bfa)'},
+{id:'7',type:'activity',name_ar:'مركز الروبوتات والبرمجة',name_en:'Robotics & Coding Center',desc_ar:'تعليم البرمجة والروبوتات للأطفال. Scratch, Python, Arduino. مسابقات محلية ودولية.',desc_en:'Coding & robotics for kids. Scratch, Python, Arduino. Local & international competitions.',area:'salmiya',addr_ar:'السالمية، مجمع المارينا',addr_en:'Salmiya, Marina Mall',prices:[{name_ar:'كورس ٨ حصص',name_en:'8 Sessions Course',price:60,dur:'month'},{name_ar:'حصة تجريبية',name_en:'Trial Session',price:5,dur:'day'}],age_min:7,age_max:16,photos:['🤖','💻','🎮'],rating:4.8,reviews:145,facilities:['ac','wifi','indoor','parking'],transport:false,featured:true,whatsapp:'+96599445566',phone:'+96522445566',color:'#6366f1',gradient:'linear-gradient(135deg,#6366f1,#818cf8)'},
+{id:'8',type:'activity',name_ar:'استوديو الفنون للأطفال',name_en:'Kids Art Studio',desc_ar:'رسم، نحت، فخار، ورش عمل فنية للأطفال. معرض سنوي لأعمال الطلاب.',desc_en:'Drawing, sculpting, pottery, art workshops for kids. Annual student exhibition.',area:'jahra',addr_ar:'الجهراء، القطعة ٦',addr_en:'Jahra, Block 6',prices:[{name_ar:'شهري (٨ حصص)',name_en:'Monthly (8 classes)',price:35,dur:'month'},{name_ar:'حصة واحدة',name_en:'Single Class',price:6,dur:'day'}],age_min:4,age_max:14,photos:['🎨','🖌️','🏺'],rating:4.4,reviews:76,facilities:['ac','indoor','parking'],transport:false,featured:false,whatsapp:'+96599778899',phone:'+96522778899',color:'#ec4899',gradient:'linear-gradient(135deg,#ec4899,#f472b6)'}
+];
+
+var USER={name_ar:'نورة الصباح',name_en:'Noura Al Sabah',phone:'+965 9xxx xxxx',kids:[{name:'سارة',age:5,gender:'girl'},{name:'عمر',age:8,gender:'boy'},{name:'ليان',age:3,gender:'girl'}]};
+
+var FACILITY_ICONS={swimming:'🏊',playground:'🎪',ac:'❄️',meals:'🍽️',bus:'🚌',parking:'🅿️',cctv:'📹',medical:'🩺',wifi:'📶',outdoor:'🌳',indoor:'🏠'};
+var TYPE_LABELS={ar:{nursery:'حضانة',summer_club:'نادي صيفي',activity:'نشاط',babysitter:'مربية'},en:{nursery:'Nursery',summer_club:'Summer Club',activity:'Activity',babysitter:'Babysitter'}};
+var TYPE_ICONS={nursery:'🏫',summer_club:'☀️',activity:'⚽',babysitter:'👩‍👧'};
+var TYPE_COLORS={nursery:'#ec4899',summer_club:'#f59e0b',activity:'#0ea5e9',babysitter:'#8b5cf6'};
+
+// ═══ RENDER HELPERS ═══
+function n(tag,a,c){var el=document.createElement(tag);if(a)Object.keys(a).forEach(function(k){if(k==='onclick')el.onclick=a[k];else if(k==='className')el.className=a[k];else if(k==='innerHTML')el.innerHTML=a[k];else if(k==='style'&&typeof a[k]==='object')Object.assign(el.style,a[k]);else el.setAttribute(k,a[k])});if(c){if(typeof c==='string')el.textContent=c;else if(Array.isArray(c))c.forEach(function(x){if(x)el.appendChild(typeof x==='string'?document.createTextNode(x):x)})}return el}
+function ln(l){return S.lang==='ar'?l.name_ar:l.name_en}
+function ld(l){return S.lang==='ar'?l.desc_ar:l.desc_en}
+function la(l){return S.lang==='ar'?l.addr_ar:l.addr_en}
+function lp(p){return S.lang==='ar'?p.name_ar:p.name_en}
+function typeLabel(tp){return TYPE_LABELS[S.lang][tp]||tp}
+function areaLabel(a){return t(a)||a}
+
+// ═══ MAIN RENDER ═══
+function render(){
+var root=document.getElementById('app');root.innerHTML='';
+document.getElementById('root').dir=isRtl()?'rtl':'ltr';
+document.getElementById('root').lang=S.lang;
+
+if(S.page==='detail'&&S.detail){root.appendChild(renderDetail());return}
+
+var pages={home:renderHome,search:renderSearch,favs:renderFavs,bookings:renderBookings,profile:renderProfile};
+root.appendChild((pages[S.tab]||renderHome)());
+renderNav(root);
+}
+
+// ═══ HOME ═══
+function renderHome(){
+var pg=n('div',{className:'pg on'});
+
+// Hero
+var hero=n('div',{className:'hero'});
+var top=n('div',{className:'hero-top'});
+var left=n('div');left.appendChild(n('div',{className:'hero-hello'},(new Date().getHours()<12?(S.lang==='ar'?'صباح الخير':'Good morning'):(S.lang==='ar'?'مساء الخير':'Good evening'))+' 👋'));
+left.appendChild(n('div',{className:'hero-name'},USER[S.lang==='ar'?'name_ar':'name_en']));
+var right=n('div',{className:'hero-actions'});
+var langBtn=n('button',{className:'hero-btn',onclick:function(){S.lang=S.lang==='ar'?'en':'ar';render()}});langBtn.textContent='🌐';
+var notifBtn=n('button',{className:'hero-btn'});notifBtn.innerHTML='🔔<span class="hero-badge">3</span>';
+right.appendChild(langBtn);right.appendChild(notifBtn);
+top.appendChild(left);top.appendChild(right);hero.appendChild(top);
+
+var search=n('div',{className:'search-bar',onclick:function(){S.tab='search';render()}});
+search.innerHTML='<span class="ico">🔍</span><span class="txt">'+t('tag')+'</span>';
+hero.appendChild(search);pg.appendChild(hero);
+
+// Categories
+var cats=n('div',{className:'cats'});
+[['nursery','🏫','#fce4ec'],['summer_club','☀️','#fff8e1'],['activity','⚽','#e0f7fa'],['babysitter','👩‍👧','#f3e5f5']].forEach(function(c){
+var ci=n('div',{className:'cat-i',onclick:function(){S.tab='search';S.filterType=c[0];render()}});
+ci.appendChild(n('div',{className:'cat-ic',style:{background:c[2]}},c[1]));
+ci.appendChild(n('div',{className:'cat-lb'},typeLabel(c[0])));
+cats.appendChild(ci)});
+pg.appendChild(cats);
+
+// Featured
+var sec1=n('div',{className:'sec'});var st1=n('div',{className:'sec-t'});st1.appendChild(n('h3',{},t('featured')+' 🔥'));st1.appendChild(n('a',{href:'#',onclick:function(e){e.preventDefault();S.tab='search';render()}},t('viewAll')));sec1.appendChild(st1);pg.appendChild(sec1);
+
+var feat=n('div',{className:'featured'});
+LISTINGS.filter(function(l){return l.featured}).forEach(function(l){
+var fc=n('div',{className:'feat-card',style:{background:l.gradient},onclick:function(){S.detail=l;S.page='detail';render()}});
+fc.appendChild(n('div',{className:'feat-badge'},typeLabel(l.type)));
+var ov=n('div',{className:'feat-overlay'});ov.appendChild(n('div',{className:'feat-name'},ln(l)));
+ov.appendChild(n('div',{className:'feat-meta'},'⭐ '+l.rating+' · 📍 '+areaLabel(l.area)+' · '+t('from')+' '+l.prices[0].price+' '+t('kd')));
+fc.appendChild(ov);feat.appendChild(fc)});
+pg.appendChild(feat);
+
+// Offer Banner
+var offer=n('div',{className:'offer-banner',style:{background:'linear-gradient(135deg,#6366f1,#a78bfa)',color:'#fff'}});
+offer.innerHTML='<div style="font-size:1.1rem;font-weight:900">'+(S.lang==='ar'?'☀️ خصم ٢٠٪ على النوادي الصيفية':'☀️ 20% OFF Summer Clubs')+'</div><div style="font-size:.72rem;opacity:.8;margin-top:4px">'+(S.lang==='ar'?'استخدم كود: SUMMER2026':'Use code: SUMMER2026')+'</div>';
+pg.appendChild(offer);
+
+// Recommended
+var sec2=n('div',{className:'sec'});var st2=n('div',{className:'sec-t'});st2.appendChild(n('h3',{},t('recommended')));st2.appendChild(n('a',{href:'#'},t('viewAll')));sec2.appendChild(st2);pg.appendChild(sec2);
+
+LISTINGS.slice(0,4).forEach(function(l){pg.appendChild(renderListingCard(l))});
+
+return pg}
+
+// ═══ LISTING CARD ═══
+function renderListingCard(l){
+var card=n('div',{className:'lcard',onclick:function(){S.detail=l;S.page='detail';render()}});
+var img=n('div',{className:'lcard-img',style:{background:l.gradient}});
+img.appendChild(n('div',{className:'lcard-badge',style:{background:TYPE_COLORS[l.type]}},typeLabel(l.type)));
+var fav=n('button',{className:'lcard-fav',onclick:function(e){e.stopPropagation();S.favs[l.id]=!S.favs[l.id];render()}});fav.textContent=S.favs[l.id]?'❤️':'🤍';
+img.appendChild(fav);
+img.appendChild(n('div',{style:{position:'absolute',bottom:14,left:14,right:14,display:'flex',gap:6}},l.photos.map(function(p){return n('span',{style:{fontSize:'1.6rem',filter:'drop-shadow(0 2px 4px rgba(0,0,0,.3))'}},p)})));
+card.appendChild(img);
+
+var body=n('div',{className:'lcard-body'});
+body.appendChild(n('div',{className:'lcard-name'},ln(l)));
+body.appendChild(n('div',{className:'lcard-loc'},'📍 '+areaLabel(l.area)+' · '+la(l)));
+var row=n('div',{className:'lcard-row'});
+row.appendChild(n('div',{className:'lcard-rating',innerHTML:'⭐ <b>'+l.rating+'</b> ('+l.reviews+' '+t('reviews')+')'}));
+row.appendChild(n('div',{className:'lcard-price'},t('from')+' '+l.prices[0].price+' '+t('kd')));
+body.appendChild(row);
+
+var tags=n('div',{className:'lcard-tags'});
+tags.appendChild(n('span',{className:'lcard-tag'},t('age')+': '+l.age_min+'-'+l.age_max+' '+t('years')));
+if(l.transport)tags.appendChild(n('span',{className:'lcard-tag'},'🚌 '+t('bus')));
+l.facilities.slice(0,3).forEach(function(f){tags.appendChild(n('span',{className:'lcard-tag'},(FACILITY_ICONS[f]||'')+' '+t(f)))});
+body.appendChild(tags);card.appendChild(body);
+return card}
+
+// ═══ DETAIL ═══
+function renderDetail(){
+var l=S.detail;var pg=n('div',{className:'pg on',style:{paddingBottom:'80px'}});
+
+// Hero image
+var hero=n('div',{className:'detail-hero',style:{background:l.gradient}});
+hero.appendChild(n('div',{className:'detail-overlay'}));
+hero.appendChild(n('button',{className:'detail-back',onclick:function(){S.page='home';S.detail=null;render()}},'←'));
+hero.appendChild(n('div',{style:{position:'absolute',bottom:20,left:0,right:0,display:'flex',justifyContent:'center',gap:10}},l.photos.map(function(p){return n('span',{style:{fontSize:'2.5rem',filter:'drop-shadow(0 2px 8px rgba(0,0,0,.3))'}},p)})));
+pg.appendChild(hero);
+
+// Info card
+var body=n('div',{className:'detail-body'});
+var card=n('div',{className:'detail-card'});
+card.appendChild(n('div',{className:'detail-type',style:{color:TYPE_COLORS[l.type]}},TYPE_ICONS[l.type]+' '+typeLabel(l.type)));
+card.appendChild(n('div',{className:'detail-name'},ln(l)));
+card.appendChild(n('div',{className:'detail-loc'},'📍 '+areaLabel(l.area)+' · '+la(l)));
+var stats=n('div',{className:'detail-stats'});
+stats.appendChild(n('div',{className:'detail-stat',innerHTML:'⭐ <b>'+l.rating+'</b> ('+l.reviews+')'}));
+stats.appendChild(n('div',{className:'detail-stat',innerHTML:'👶 <b>'+l.age_min+'-'+l.age_max+'</b> '+t('years')}));
+if(l.transport)stats.appendChild(n('div',{className:'detail-stat'},'🚌 '+t('bus')));
+card.appendChild(stats);body.appendChild(card);pg.appendChild(body);
+
+// Description
+var desc=n('div',{className:'detail-section'});desc.appendChild(n('h4',{},t('description')));
+desc.appendChild(n('p',{style:{fontSize:'.82rem',color:'var(--t2)',lineHeight:'1.7'}},ld(l)));pg.appendChild(desc);
+
+// Facilities
+var fac=n('div',{className:'detail-section'});fac.appendChild(n('h4',{},t('facilities')));
+var fg=n('div',{className:'facility-grid'});
+l.facilities.forEach(function(f){fg.appendChild(n('div',{className:'facility'},(FACILITY_ICONS[f]||'')+' '+t(f)))});
+fac.appendChild(fg);pg.appendChild(fac);
+
+// Packages
+var pkgs=n('div',{className:'detail-section'});pkgs.appendChild(n('h4',{},t('packages')));
+l.prices.forEach(function(p,i){
+var pc=n('div',{className:'pkg-card'+(i===0?' on':'')});
+pc.appendChild(n('div',{className:'pkg-name'},lp(p)));
+pc.appendChild(n('div',{className:'pkg-price'},p.price+' '+t('kd')));
+pc.appendChild(n('div',{className:'pkg-dur'},p.dur==='month'?t('monthPlan'):p.dur==='week'?t('weekPlan'):t('dailyPlan')));
+pkgs.appendChild(pc)});pg.appendChild(pkgs);
+
+// Schedule
+var sched=n('div',{className:'detail-section'});sched.appendChild(n('h4',{},t('schedule')));
+sched.appendChild(n('div',{style:{background:'var(--card)',borderRadius:'12px',padding:'12px',border:'1px solid var(--border)',fontSize:'.78rem',color:'var(--t2)'}},t('sunToThu')+' · 7:30 AM - 2:00 PM'));
+pg.appendChild(sched);
+
+// Action bar
+var bar=n('div',{className:'action-bar'});
+bar.appendChild(n('button',{className:'action-btn btn-wa',onclick:function(){window.open('https://wa.me/'+l.whatsapp.replace('+',''),'_blank')}},'💬 WhatsApp'));
+bar.appendChild(n('button',{className:'action-btn btn-primary',onclick:function(){alert(S.lang==='ar'?'سيتم فتح صفحة الحجز قريباً!':'Booking page coming soon!')}},t('bookNow')));
+pg.appendChild(bar);
+
+return pg}
+
+// ═══ SEARCH ═══
+function renderSearch(){
+var pg=n('div',{className:'pg on'});
+pg.appendChild(n('div',{style:{padding:'20px 16px 10px',fontSize:'1.3rem',fontWeight:'900'}},t('search')));
+
+// Filter tabs
+var tabs=n('div',{style:{display:'flex',gap:'6px',padding:'0 16px 12px',overflowX:'auto'}});
+['all','nursery','summer_club','activity','babysitter'].forEach(function(tp){
+var active=(!S.filterType&&tp==='all')||(S.filterType===tp);
+var btn=n('button',{style:{padding:'7px 16px',borderRadius:'20px',background:active?'var(--primary)':'var(--card)',color:active?'#fff':'var(--t2)',border:'1px solid '+(active?'var(--primary)':'var(--border)'),fontSize:'.7rem',fontWeight:'600',cursor:'pointer',fontFamily:'inherit',whiteSpace:'nowrap'},onclick:function(){S.filterType=tp==='all'?null:tp;render()}});
+btn.textContent=(tp==='all'?t('all'):TYPE_ICONS[tp]+' '+typeLabel(tp));
+tabs.appendChild(btn)});
+pg.appendChild(tabs);
+
+// Area filter
+var areas=n('div',{style:{display:'flex',gap:'5px',padding:'0 16px 12px',overflowX:'auto'}});
+['','salmiya','hawalli','farwaniya','sabahSalem','jahra','capital'].forEach(function(a){
+var active=S.filterArea===a;
+areas.appendChild(n('button',{style:{padding:'5px 12px',borderRadius:'16px',background:active?'#f0ecff':'var(--card)',color:active?'var(--primary)':'var(--t3)',border:'1px solid var(--border)',fontSize:'.6rem',fontWeight:'600',cursor:'pointer',fontFamily:'inherit',whiteSpace:'nowrap'},onclick:function(){S.filterArea=a;render()}},a?areaLabel(a):t('allAreas')))});
+pg.appendChild(areas);
+
+// Results
+var results=LISTINGS.filter(function(l){
+if(S.filterType&&l.type!==S.filterType)return false;
+if(S.filterArea&&l.area!==S.filterArea)return false;
+return true});
+
+results.forEach(function(l){pg.appendChild(renderListingCard(l))});
+if(results.length===0)pg.appendChild(n('div',{style:{textAlign:'center',padding:'50px',color:'var(--t3)',fontSize:'.88rem'}},'😢 '+(S.lang==='ar'?'لا توجد نتائج':'No results found')));
+return pg}
+
+// ═══ FAVORITES ═══
+function renderFavs(){
+var pg=n('div',{className:'pg on'});pg.appendChild(n('div',{style:{padding:'20px 16px 10px',fontSize:'1.3rem',fontWeight:'900'}},t('favs')+' ❤️'));
+var favList=LISTINGS.filter(function(l){return S.favs[l.id]});
+if(favList.length===0)pg.appendChild(n('div',{style:{textAlign:'center',padding:'60px',color:'var(--t3)'},innerHTML:'<div style="font-size:3rem;margin-bottom:10px">💝</div>'+(S.lang==='ar'?'لم تضف أي مفضلات بعد':'No favorites yet')}));
+else favList.forEach(function(l){pg.appendChild(renderListingCard(l))});
+return pg}
+
+// ═══ BOOKINGS ═══
+function renderBookings(){
+var pg=n('div',{className:'pg on'});pg.appendChild(n('div',{style:{padding:'20px 16px 10px',fontSize:'1.3rem',fontWeight:'900'}},t('myBookings')));
+pg.appendChild(n('div',{style:{textAlign:'center',padding:'60px',color:'var(--t3)'},innerHTML:'<div style="font-size:3rem;margin-bottom:10px">📋</div>'+t('noBookings')}));
+return pg}
+
+// ═══ PROFILE ═══
+function renderProfile(){
+var pg=n('div',{className:'pg on'});
+
+var header=n('div',{className:'prof-header'});
+header.appendChild(n('div',{className:'prof-avatar'},'👩'));
+header.appendChild(n('div',{className:'prof-name'},USER[S.lang==='ar'?'name_ar':'name_en']));
+header.appendChild(n('div',{className:'prof-phone',style:{direction:'ltr'}},USER.phone));
+var kids=n('div',{className:'prof-kids'});
+USER.kids.forEach(function(k){kids.appendChild(n('div',{className:'prof-kid'},(k.gender==='girl'?'👧':'👦')+' '+k.name+' ('+k.age+')'))});
+header.appendChild(kids);pg.appendChild(header);
+
+var menu=[
+['👶',t('kids'),'#e8f5e9'],
+['📋',t('myBookings'),'#e3f2fd'],
+['❤️',t('favs'),'#fce4ec'],
+['🏷️',t('offers'),'#fff8e1'],
+['🌐',t('lang'),'#f3e5f5',function(){S.lang=S.lang==='ar'?'en':'ar';render()}],
+['⚙️',t('settings'),'#f5f5f5'],
+['❓',t('help'),'#e0f7fa'],
+['🚪',t('logout'),'#ffebee']
+];
+var menuWrap=n('div',{style:{marginTop:'12px',background:'var(--card)',borderRadius:'16px',overflow:'hidden',margin:'12px 16px'}});
+menu.forEach(function(m){
+var mi=n('div',{className:'menu-item',onclick:m[3]||null});
+mi.appendChild(n('div',{className:'menu-ico',style:{background:m[2]}},m[0]));
+mi.appendChild(n('span',{className:'menu-lbl'},m[1]));
+mi.appendChild(n('span',{className:'menu-arr'},'←'));
+menuWrap.appendChild(mi)});
+pg.appendChild(menuWrap);
+
+pg.appendChild(n('div',{style:{textAlign:'center',padding:'16px',fontSize:'.6rem',color:'var(--t3)'}},'Wain v1.0 — Ali AlEnezi · @SiteQ8'));
+return pg}
+
+// ═══ NAV ═══
+function renderNav(root){
+var nav=n('div',{className:'nav'});
+[['home','🏠',t('home')],['search','🔍',t('search')],['favs','❤️',t('favs')],['bookings','📋',t('bookings')],['profile','👤',t('profile')]].forEach(function(tab){
+var ni=n('div',{className:'nav-i'+(S.tab===tab[0]?' on':''),onclick:function(){S.tab=tab[0];S.page='home';S.detail=null;render()}});
+ni.appendChild(n('div',{className:'ic'},tab[1]));ni.appendChild(n('div',{className:'lb'},tab[2]));nav.appendChild(ni)});
+root.appendChild(nav)}
+
+// ═══ INIT ═══
+render();
+
+</script>
+</body>
+</html>
