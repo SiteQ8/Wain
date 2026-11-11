@@ -6,7 +6,7 @@
 
 <img src="docs/logo.svg" alt="Wain Logo" width="100" />
 
-### 📍 Wain | وين
+### Wain | وين
 
 **Kuwait Kids Activities, Summer Clubs, Nurseries & Babysitters**
 
@@ -15,7 +15,7 @@
 [![React](https://img.shields.io/badge/React-Admin-61DAFB?style=flat-square&logo=react)]()
 [![Bilingual](https://img.shields.io/badge/AR_|_EN-Bilingual-6366f1?style=flat-square)]()
 
-**"وين تبي تروح؟"** — Help parents in Kuwait discover, compare, and book the best activities for their kids.
+**"وين تبي تروح؟"**، Help parents in Kuwait discover, compare, and book the best activities for their kids.
 
 [**Live Demo**](https://siteq8.github.io/Wain) · [**Firestore Schema**](firebase/firestore-schema.md) · [**Flutter Models**](flutter-app/lib/models/)
 
@@ -23,32 +23,32 @@
 
 ---
 
-## 📱 Live Demo
+## Live Demo
 
-**[siteq8.github.io/Wain](https://siteq8.github.io/Wain)** — Enter any phone → Send OTP → Any 4 digits → Explore!
+**[siteq8.github.io/Wain](https://siteq8.github.io/Wain)**, Enter any phone → Send OTP → Any 4 digits → Explore!
 
 ---
 
-## ✨ Features
+## Features
 
 ### User App
-- **OTP Login** — Phone + 4-digit code + quick demo login
-- **Home** — "وين تبي تروح?" search, featured slider, categories, recommendations
-- **Search** — Filter by area, type, age, rating, transport. 15 listings
-- **Detail** — Gallery, prices, facilities, reviews, WhatsApp/Call, Book Now
-- **Booking** — Package selection, dates, coupon codes, status tracking
-- **Favorites** — Save and manage favorite listings
-- **Profile** — Kids management, booking history, AR/EN toggle, logout
-- **Bilingual** — Full Arabic (RTL) and English (LTR) with one-tap switch
+- **OTP Login**: Phone + 4-digit code + quick demo login
+- **Home**: "وين تبي تروح?" search, featured slider, categories, recommendations
+- **Search**: Filter by area, type, age, rating, transport. 15 listings
+- **Detail**: Gallery, prices, facilities, reviews, WhatsApp/Call, Book Now
+- **Booking**: Package selection, dates, coupon codes, status tracking
+- **Favorites**: Save and manage favorite listings
+- **Profile**: Kids management, booking history, AR/EN toggle, logout
+- **Bilingual**: Full Arabic (RTL) and English (LTR) with one-tap switch
 
 ### Admin Dashboard
-- **Roles** — Super Admin, Sub-Admin, Nursery Owner
-- **Listings** — CRUD, photos, pricing, availability, featured toggle
-- **Bookings** — View all, approve/reject, status management
-- **Users** — View parents, block/verify
-- **Reviews** — Approve or hide, respond
-- **Coupons** — Create codes, discount %, validity
-- **Analytics** — Bookings, revenue, popular areas, top-rated
+- **Roles**: Super Admin, Sub-Admin, Nursery Owner
+- **Listings**: CRUD, photos, pricing, availability, featured toggle
+- **Bookings**: View all, approve/reject, status management
+- **Users**: View parents, block/verify
+- **Reviews**: Approve or hide, respond
+- **Coupons**: Create codes, discount %, validity
+- **Analytics**: Bookings, revenue, popular areas, top-rated
 
 ### Payments
 - MyFatoorah / Tap Payments integration
@@ -57,7 +57,7 @@
 
 ---
 
-## 🏢 15 Demo Listings
+## 15 Demo Listings
 
 | # | Name | Type | Area | Age | Price | Rating |
 |---|------|------|------|-----|-------|--------|
@@ -79,7 +79,7 @@
 
 ---
 
-## 🔥 Firestore Schema
+## Firestore Schema
 
 8 collections: `users` · `kids` · `listings` · `bookings` · `reviews` · `coupons` · `notifications` · `admins`
 
@@ -89,7 +89,7 @@ See full schema: [`firebase/firestore-schema.md`](firebase/firestore-schema.md)
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 Wain/
@@ -111,7 +111,7 @@ Wain/
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ```bash
 # Demo (instant)
@@ -129,7 +129,7 @@ firebase init firestore
 
 ---
 
-## 🎨 Design System
+## Design System
 
 | Element | Value |
 |---------|-------|
@@ -141,7 +141,7 @@ firebase init firestore
 
 ---
 
-## 👤 Author
+## Author
 
 <div align="center">
 
